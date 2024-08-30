@@ -1,0 +1,30 @@
+services:
+  mosquitto:
+    container_name: 'mosquitto'
+    image: eclipse-mosquitto
+    restart: unless-stopped
+    ports:
+      - '1883:1883'
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+    profiles: ["certbot"]
+
+  duckdns:
+    image: lscr.io/linuxserver/duckdns:latest
+    container_name: duckdns
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=AR
+      - SUBDOMAINS: ${DOMAIN_NAME}
+      - TOKEN: ${DUCKDNS_TOKEN}
+      - UPDATE_IP=ipv4
+      - LOG_FILE=true
+    volumes:
+      - ./duckdns/config:/config
+      
