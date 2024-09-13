@@ -11,7 +11,7 @@ services:
     container_name: 'redes-duckdns'
     network_mode: host
     environment:
-      - SUBDOMAINS=${DOMAIN_NAME}
-      - TOKEN=${DUCKDNS_TOKEN}
+      SUBDOMAINS=${DOMAIN_NAME}
+      TOKEN=${DUCKDNS_TOKEN}
     volumes:
       - ./duckdns/config:/config
