@@ -7,7 +7,6 @@ services:
     restart: unless-stopped
     volumes:
       - './mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf'
-      - ''
 
   duckdns:
     container_name: 'seg-redes-duckdns'
