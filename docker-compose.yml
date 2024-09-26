@@ -17,7 +17,7 @@ services:
     image: lscr.io/linuxserver/duckdns:latest
     network_mode: host
     environment:
-      - SUBDOMAINS=${DOMAIN_NAME}
+      - SUBDOMAINS=${SUBDOMAIN}
       - TOKEN=${DUCKDNS_TOKEN}
     restart: unless-stopped
     volumes:

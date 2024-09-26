@@ -1,4 +1,4 @@
 listener 8883
-cafile certs/ca-root-cert.crt
-keyfile certs/server.key
-certfile certs/server.crt
+cafile /mosquitto/certs/ca-root-cert.crt
+keyfile /mosquitto/certs/server.key
+certfile /mosquitto/certs/server.crt
