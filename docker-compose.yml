@@ -1,17 +1,21 @@
 services:
   mosquitto:
-    container_name: 'redes-mosquitto'
+    container_name: 'seg-redes-mosquitto'
     image: eclipse-mosquitto
-    restart: unless-stopped
     ports:
       - '1883:1883'
+    restart: unless-stopped
+    volumes:
+      - './mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf'
+      - ''
 
   duckdns:
+    container_name: 'seg-redes-duckdns'
     image: lscr.io/linuxserver/duckdns:latest
-    container_name: 'redes-duckdns'
     network_mode: host
     environment:
-      SUBDOMAINS=${DOMAIN_NAME}
-      TOKEN=${DUCKDNS_TOKEN}
+      - SUBDOMAINS=${DOMAIN_NAME}
+      - TOKEN=${DUCKDNS_TOKEN}
+    restart: unless-stopped
     volumes:
       - ./duckdns/config:/config
