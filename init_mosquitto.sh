@@ -21,5 +21,5 @@ else
   cp "$NON_SECURED_CONF" "$TARGET_CONF"
 fi
 
-# Start Docker Compose
-docker-compose up -d
+# Start Mosquitto after configuration
+exec mosquitto -c /mosquitto/config/mosquitto.conf

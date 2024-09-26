@@ -4,12 +4,13 @@ services:
     image: eclipse-mosquitto
     ports:
       - '1883:1883'
+      - '8883:8883'
     restart: unless-stopped
     volumes:
-      - './mosquitto/config:/mosquitto/config'
-      - './mosquitto/certs:/mosquitto/certs'
+      - './mosquitto/config/:/mosquitto/config/'
+      - './mosquitto/certs/:/mosquitto/certs/'
       - './init_mosquitto.sh:/init_mosquitto.sh'
-    entrypoint: ["/bin/bash", "/init_mosquitto.sh"]
+    entrypoint: ["/bin/sh", "/init_mosquitto.sh"]
 
   duckdns:
     container_name: 'seg-redes-duckdns'
