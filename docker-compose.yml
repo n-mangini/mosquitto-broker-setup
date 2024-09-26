@@ -5,8 +5,6 @@ services:
     ports:
       - '1883:1883'
       - '8883:8883'
-    environment:
-      - DOMAIN_NAME=${DOMAIN_NAME}
     restart: unless-stopped
     volumes:
       - './mosquitto/config/:/mosquitto/config/'
