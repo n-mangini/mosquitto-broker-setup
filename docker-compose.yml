@@ -20,5 +20,3 @@ services:
       - SUBDOMAINS=${SUBDOMAIN}
       - TOKEN=${DUCKDNS_TOKEN}
     restart: unless-stopped
-    volumes:
-      - ./duckdns/config:/config
