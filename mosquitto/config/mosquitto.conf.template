@@ -2,3 +2,5 @@ listener 8883
 cafile /mosquitto/certs/ca-root-cert.crt
 keyfile /mosquitto/certs/server.key
 certfile /mosquitto/certs/server.crt
+
+allow_anonymous true
