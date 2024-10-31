@@ -27,4 +27,9 @@ echo "Setting permissions for the password file..."
 sudo chown mosquitto:mosquitto "$PASSWORD_FILE"
 sudo chmod 600 "$PASSWORD_FILE"
 
+# Set ownership to ensure it can be read by the Mosquitto service inside the container
+echo "Setting permissions for the password file..."
+chown 1883:1883 "$PASSWORD_FILE"
+chmod 600 "$PASSWORD_FILE"
+
 echo "User $USERNAME has been added to the Mosquitto password file."
