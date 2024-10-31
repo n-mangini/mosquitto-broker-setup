@@ -16,20 +16,10 @@ read -p "Enter the username for Mosquitto authentication: " USERNAME
 # Check if password file already exists
 if [ ! -f "$PASSWORD_FILE" ]; then
     echo "Creating new password file at $PASSWORD_FILE"
-    sudo mosquitto_passwd -c "$PASSWORD_FILE" "$USERNAME"
+    mosquitto_passwd -c "$PASSWORD_FILE" "$USERNAME"
 else
     echo "Adding user to existing password file at $PASSWORD_FILE"
-    sudo mosquitto_passwd "$PASSWORD_FILE" "$USERNAME"
+    mosquitto_passwd "$PASSWORD_FILE" "$USERNAME"
 fi
-
-# Set permissions on the password file to secure it
-echo "Setting permissions for the password file..."
-sudo chown mosquitto:mosquitto "$PASSWORD_FILE"
-sudo chmod 600 "$PASSWORD_FILE"
-
-# Set ownership to ensure it can be read by the Mosquitto service inside the container
-echo "Setting permissions for the password file..."
-chown 1883:1883 "$PASSWORD_FILE"
-chmod 600 "$PASSWORD_FILE"
 
 echo "User $USERNAME has been added to the Mosquitto password file."
