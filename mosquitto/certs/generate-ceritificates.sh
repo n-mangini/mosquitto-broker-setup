@@ -66,3 +66,8 @@ echo "TLS Certificates and keys created successfully."
 echo "CA Certificate: $CA_CERT"
 echo "Server Certificate: $SERVER_CERT"
 echo "Server Key: $SERVER_KEY"
+
+# Display the contents of the CA root certificate
+echo ""
+echo "Contents of CA Root Certificate to use in your devices ($CA_CERT):"
+cat $CA_CERT
