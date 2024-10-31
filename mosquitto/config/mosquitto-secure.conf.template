@@ -1,0 +1,7 @@
+# TLS port
+listener 8883
+
+# TLS
+cafile /mosquitto/certs/ca-root-cert.crt
+keyfile /mosquitto/certs/server.key
+certfile /mosquitto/certs/server.crt
