@@ -12,7 +12,10 @@ These options can be combined to create different configurations:
 - **Secured + Auth**: TLS with Authentication.
 
 ## Usage
-Create your own .env using [.sample.env](https://github.com/n-mangini/mqtt-encrypted/blob/main/.sample.env) as a template.
+Create your own .env using [.template.env](https://github.com/n-mangini/mqtt-encrypted/blob/main/.template.env) as a template.
+```bash
+cp .template.env .env && vim .env
+```
 ### 1. Open Mode: 
 Just run the docker-compose without any further configuration
 ### 2. Secured Mode (TLS Only): 
