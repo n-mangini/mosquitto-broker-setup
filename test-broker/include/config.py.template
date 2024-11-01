@@ -1,5 +1,5 @@
 BROKER = ""
-PORT = ""
+#PORT = 
 CERT = ""
 USERNAME = ""
 PASSWORD = ""

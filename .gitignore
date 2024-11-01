@@ -3,3 +3,4 @@
 
 test-broker/include/config.py
 test-broker/include/ca-root-cert.crt
+test-broker/venv
