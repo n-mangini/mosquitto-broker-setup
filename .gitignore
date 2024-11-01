@@ -1,2 +1,5 @@
 .vscode
 .env
+
+test-broker/include/config.py
+test-broker/include/ca-root-cert.crt
