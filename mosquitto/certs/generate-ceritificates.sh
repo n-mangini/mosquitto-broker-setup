@@ -11,23 +11,23 @@ DAYS_VALID=365
 
 ENV_FILE="../../.env"
 
-# Load the DOMAIN_NAME environment variable from the external .env file
+# Load the SUBDOMAIN environment variable from the external .env file
 if [ -f "$ENV_FILE" ]; then
-  DOMAIN_NAME=$(grep '^DOMAIN_NAME=' "$ENV_FILE" | cut -d '=' -f2-)
+  SUBDOMAIN=$(grep '^SUBDOMAIN=' "$ENV_FILE" | cut -d '=' -f2-)
   # Remove surrounding quotes if present
-  DOMAIN_NAME=$(echo "$DOMAIN_NAME" | sed -e 's/^"//' -e 's/"$//')
-  DOMAIN_NAME=$(echo "$DOMAIN_NAME" | sed -e "s/^'//" -e "s/'$//")
+  SUBDOMAIN=$(echo "$SUBDOMAIN" | sed -e 's/^"//' -e 's/"$//')
+  SUBDOMAIN=$(echo "$SUBDOMAIN" | sed -e "s/^'//" -e "s/'$//")
 else
   echo "Error: .env file not found at $ENV_FILE"
   exit 1
 fi
 
-# Check if DOMAIN_NAME is set
-if [ -z "$DOMAIN_NAME" ]; then
-  echo "Error: DOMAIN_NAME is not set in the .env file."
+# Check if SUBDOMAIN is set
+if [ -z "$SUBDOMAIN" ]; then
+  echo "Error: SUBDOMAIN is not set in the .env file."
   exit 1
 else
-  echo "Using DOMAIN_NAME: $DOMAIN_NAME"
+  echo "Using SUBDOMAIN: $SUBDOMAIN.duckdns.com"
 fi
 
 # Step 1: Generate the CA key
