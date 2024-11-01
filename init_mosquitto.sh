@@ -35,6 +35,9 @@ cat "$OPEN_TEMPLATE" > "$CONF_FILE"
 if tls_enabled; then
     echo "TLS certificates found. Adding secured configuration."
 
+    # Remove the default listener on port 1883 from the configuration file if it exists
+    sed -i '/^listener 1883/d' "$CONF_FILE"
+
     # Set ownership and permissions for TLS files
     chown $SERVICE_USER:$SERVICE_GROUP "$CERT_FILE" "$KEY_FILE" "$CA_FILE"
     chmod 644 "$CERT_FILE" "$CA_FILE"
@@ -47,6 +50,9 @@ fi
 # If authentication is enabled, append the authentication settings from the auth template
 if auth_enabled; then
     echo "Password file found. Adding authentication configuration."
+
+    # Remove the line `allow_anonymous true` from the configuration file if it exists
+    sed -i '/^allow_anonymous true/d' "$CONF_FILE"
 
     # Append the authentication configuration to the main config
     cat "$AUTH_TEMPLATE" >> "$CONF_FILE"
