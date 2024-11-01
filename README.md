@@ -17,10 +17,7 @@ Create your own .env using [.template.env](https://github.com/n-mangini/mqtt-enc
 cp .template.env .env && vim .env
 ```
 ### 1. Open Mode: 
-Just run the docker-compose without any further configuration
-```bash
-docker compose up -d
-```
+Just run [docker-compose](https://github.com/n-mangini/mqtt-encrypted/blob/main/docker-compose.yml) without any further configuration
 ### 2. Secured Mode (TLS Only): 
 Run [./generate-certificates.sh](https://github.com/n-mangini/mqtt-encrypted/blob/main/mosquitto/certs/generate-ceritificates.sh) script to create TLS certificates, then run [docker-compose](https://github.com/n-mangini/mqtt-encrypted/blob/main/docker-compose.yml).
 ### 3. Auth Mode: 
