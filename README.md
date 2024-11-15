@@ -12,7 +12,7 @@ These options can be combined to create different configurations:
 - **Secured + Auth**: TLS with Authentication.
 
 ## Usage
-Create your own .env using [.template.env](https://github.com/n-mangini/mqtt-encrypted/blob/main/.template.env) as a template.
+Create your own .env using [.template.env](https://github.com/n-mangini/mqtt-encrypted/blob/main/.template.env).
 ```bash
 cp .template.env .env && vim .env
 ```
