@@ -53,7 +53,7 @@ openssl genrsa -out $SERVER_KEY 2048
 # Step 5: Create a CSR for the server
 echo ""
 echo "Creating a CSR for the server..."
-openssl req -new -key $SERVER_KEY -out $SERVER_CSR -sha256 -subj "/O=MQTT Broker SA/CN=$SUBDOMAIN.duckdns.com"
+openssl req -new -key $SERVER_KEY -out $SERVER_CSR -sha256 -subj "/O=MQTT Broker SA/CN=$SUBDOMAIN.duckdns.org"
 
 # Step 6: Sign the server certificate with the CA
 echo ""
